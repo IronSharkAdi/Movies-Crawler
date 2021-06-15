@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from '../components/Header'
 import Nav from '../components/Nav'
+import Result from '../components/Result'
 // import Image from 'next/image'
 
 export default function Home() {
@@ -13,9 +14,7 @@ export default function Home() {
 
             <Header/>
             <Nav/>
-            <div >
-                <h1>Hello world</h1>
-            </div>
+            <Result/>
         </>
   )
 }

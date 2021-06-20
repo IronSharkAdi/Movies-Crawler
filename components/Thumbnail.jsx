@@ -1,0 +1,27 @@
+import Image from 'next/image'
+function Thumbnail({result}) {
+    const base_url = "https://image.tmdb.org/t/p/original/"
+    return (
+        <div className="group cursor-pointer transition duration-200  ease-in transform sm:hover:scale-105 hover:z-50   ">
+            <Image className="responsive" src={`
+            ${base_url}${result.backdrop_path || result.poster_path}` || `${base_url}${result.poster_path}`} 
+            height={1080}
+            width={1920}
+            />
+            <div className="p-2">
+                <p className=" max-w-md" style={{    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",}}>{result.overview}</p>
+
+                <h2 className="mt-1 text-2xl text-white transition-all duration-100 ease-in-out group-hover:font-bold">{result.title || result.original_name}</h2>
+
+                <p className="flex items-center opacity-0 group-hover:opacity-100">
+                    {result.media_type && `${result.media_type}`} {` `}
+                    {result.release_date || `${result.first_air_date    }`} {` `}
+
+                </p>
+            </div>
+        </div>
+    )
+}
+export default Thumbnail

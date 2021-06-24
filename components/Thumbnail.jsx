@@ -1,8 +1,9 @@
 import Image from 'next/image'
-function Thumbnail({result}) {
+import { forwardRef }  from 'react'
+const Thumbnail = forwardRef(({result} , ref) => {
     const base_url = "https://image.tmdb.org/t/p/original/"
     return (
-        <div className="group cursor-pointer transition duration-200  ease-in transform sm:hover:scale-105 hover:z-50   ">
+        <div ref={ref} className="group cursor-pointer transition duration-200  ease-in transform sm:hover:scale-105 hover:z-50   ">
             <Image className="responsive" src={`
             ${base_url}${result.backdrop_path || result.poster_path}` || `${base_url}${result.poster_path}`} 
             height={1080}
@@ -23,5 +24,5 @@ function Thumbnail({result}) {
             </div>
         </div>
     )
-}
+})
 export default Thumbnail
